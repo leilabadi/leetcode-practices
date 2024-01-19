@@ -10,7 +10,7 @@ public class ThreeSum
             dic[nums[i]] = i;
         }
 
-        List<int> visited = new();
+        Dictionary<(int, int, int), bool> visited = [];
         IList<IList<int>> results = new List<IList<int>>();
         for (int i = 0; i < nums.Length - 1; i++)
         {
@@ -20,13 +20,11 @@ public class ThreeSum
                 if (dic.ContainsKey(complement))
                 {
                     if (i == dic[complement] || j == dic[complement]) continue;
-                    int hash = GenerateHash(nums, i, j, dic[complement]);
-                    Console.WriteLine($"hash: {hash}");
-                    if (!visited.Contains(hash))
+                    var tuple = GetOrderedTuple(nums, i, j, dic[complement]);
+                    if (!visited.ContainsKey(tuple))
                     {
-                        visited.Add(hash);
+                        visited[tuple] = true;
                         results.Add([nums[i], nums[j], complement]);
-                        Console.WriteLine($"{nums[i]}, {nums[j]}, {complement}");
                     }
                 }
             }
@@ -35,35 +33,10 @@ public class ThreeSum
         return results;
     }
 
-    public IList<IList<int>> Solution2(int[] nums)
+    private (int, int, int) GetOrderedTuple(int[] nums, int i, int j, int k)
     {
-        List<int> visited = new();
-        IList<IList<int>> results = new List<IList<int>>();
-        for (int i = 0; i < nums.Length - 2; i++)
-        {
-            for (int j = i + 1; j < nums.Length - 1; j++)
-            {
-                for (int k = j + 1; k < nums.Length; k++)
-                {
-                    int sum = nums[i] + nums[j] + nums[k];
-                    if (sum == 0)
-                    {
-                        int hash = GenerateHash(nums, i, j, k);
-                        if (!visited.Contains(hash))
-                        {
-                            visited.Add(hash);
-                            results.Add([nums[i], nums[j], nums[k]]);
-                        }
-                    }
-                }
-            }
-        }
-
-        return results;
-    }
-
-    private int GenerateHash(int[] nums, int i, int j, int k)
-    {
-        return (int)(nums[i] * Math.Pow(2, i) + nums[j] * Math.Pow(2, j) + nums[k] * Math.Pow(2, k));
+        int[] subset = [nums[i], nums[j], nums[k]];
+        int[] ordered = [.. subset.Order()];
+        return (ordered[0], ordered[1], ordered[2]);
     }
 }
