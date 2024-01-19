@@ -2,3 +2,4 @@
 
 using LeetcodePractices.Problems;
 
+Console.WriteLine("Hello, World!");
