@@ -2,7 +2,7 @@
 
 public class ThreeSumOptimized
 {
-    // This solution is O(N^2)?
+    // This solution is O(N^2)
     public IList<IList<int>> Solution(int[] nums)
     {
         List<IList<int>> allResults = [];
