@@ -2,11 +2,11 @@ namespace LeetcodePractices.UnitTests;
 
 public class ThreeSumTests
 {
-    private readonly ThreeSum sut;
+    private readonly ThreeSumOptimized sut;
 
     public ThreeSumTests()
     {
-        sut = new ThreeSum();
+        sut = new ThreeSumOptimized();
     }
 
     [Fact]
@@ -16,12 +16,12 @@ public class ThreeSumTests
         int[] nums = [-1, 0, 1, 2, -1, -4];
         List<List<int>> expected =
             [
-                new() { -1, -1, 2 },
-                new() { -1, 0, 1 }
+                [-1, -1, 2],
+                [-1, 0, 1]
             ];
 
         // Act
-        var result = sut.Solution1(nums);
+        var result = sut.Solution(nums);
 
         // Assert
         result.Should().BeEquivalentTo(expected);
@@ -34,11 +34,11 @@ public class ThreeSumTests
         int[] nums = [0, 0, 0];
         List<List<int>> expected =
             [
-                new() { 0, 0, 0 }
+                [0, 0, 0]
             ];
 
         // Act
-        var result = sut.Solution1(nums);
+        var result = sut.Solution(nums);
 
         // Assert
         result.Should().BeEquivalentTo(expected);
@@ -51,11 +51,11 @@ public class ThreeSumTests
         int[] nums = [-1, 0, 1, 0];
         List<List<int>> expected =
             [
-                new() { -1, 0, 1 }
+                [-1, 0, 1]
             ];
 
         // Act
-        var result = sut.Solution1(nums);
+        var result = sut.Solution(nums);
 
         // Assert
         result.Should().BeEquivalentTo(expected);
@@ -69,7 +69,7 @@ public class ThreeSumTests
         List<List<int>> expected = [];
 
         // Act
-        var result = sut.Solution1(nums);
+        var result = sut.Solution(nums);
 
         // Assert
         result.Should().BeEquivalentTo(expected);
@@ -87,13 +87,38 @@ public class ThreeSumTests
 
         List<List<int>> expected =
             [
-                new() { 0, 0, 0 }
+                [0, 0, 0]
             ];
 
         // Act
-        var result = sut.Solution1(nums);
+        var result = sut.Solution(nums);
 
         Console.WriteLine(nums.Length);
+
+        // Assert
+        result.Should().BeEquivalentTo(expected);
+    }
+
+    [Fact]
+    public void Test6()
+    {
+        // Arrange
+        int[] nums = [-1, 0, 1, 2, -1, -4, -2, -3, 3, 0, 4];
+        List<List<int>> expected =
+            [
+                [-4, 0, 4],
+                [-4, 1, 3],
+                [-3, -1, 4],
+                [-3, 0, 3],
+                [-3, 1, 2],
+                [-2, -1, 3],
+                [-2, 0, 2],
+                [-1, -1, 2],
+                [-1, 0, 1]
+            ];
+
+        // Act
+        var result = sut.Solution(nums);
 
         // Assert
         result.Should().BeEquivalentTo(expected);

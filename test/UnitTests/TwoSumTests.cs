@@ -2,11 +2,11 @@ namespace LeetcodePractices.UnitTests;
 
 public class TwoSumTests
 {
-    private readonly TwoSum sut;
+    private readonly TwoSumOptimized sut;
 
     public TwoSumTests()
     {
-        sut = new TwoSum();
+        sut = new TwoSumOptimized();
     }
 
     [Fact]
@@ -18,7 +18,7 @@ public class TwoSumTests
         int[] expected = [0, 1];
 
         // Act
-        var result = sut.Solution2(nums, target);
+        var result = sut.Solution(nums, target);
 
         // Assert
         result.Should().BeEquivalentTo(expected);
@@ -33,7 +33,7 @@ public class TwoSumTests
         int[] expected = [1, 2];
 
         // Act
-        var result = sut.Solution2(nums, target);
+        var result = sut.Solution(nums, target);
 
         // Assert
         result.Should().BeEquivalentTo(expected);
@@ -48,7 +48,7 @@ public class TwoSumTests
         int[] expected = [0, 3];
 
         // Act
-        var result = sut.Solution2(nums, target);
+        var result = sut.Solution(nums, target);
 
         // Assert
         result.Should().BeEquivalentTo(expected);
@@ -63,7 +63,7 @@ public class TwoSumTests
         int[] expected = [2, 4];
 
         // Act
-        var result = sut.Solution2(nums, target);
+        var result = sut.Solution(nums, target);
 
         // Assert
         result.Should().BeEquivalentTo(expected);
@@ -78,7 +78,7 @@ public class TwoSumTests
         int[] expected = [0, 3];
 
         // Act
-        var result = sut.Solution2(nums, target);
+        var result = sut.Solution(nums, target);
 
         // Assert
         result.Should().BeEquivalentTo(expected);
@@ -93,7 +93,7 @@ public class TwoSumTests
         int[] expected = [3, 4];
 
         // Act
-        var result = sut.Solution2(nums, target);
+        var result = sut.Solution(nums, target);
 
         // Assert
         result.Should().BeEquivalentTo(expected);
@@ -108,7 +108,7 @@ public class TwoSumTests
         int[] expected = [0, 1];
 
         // Act
-        var result = sut.Solution2(nums, target);
+        var result = sut.Solution(nums, target);
 
         // Assert
         result.Should().BeEquivalentTo(expected);
@@ -123,7 +123,7 @@ public class TwoSumTests
         int[] expected = [1, 2];
 
         // Act
-        var result = sut.Solution2(nums, target);
+        var result = sut.Solution(nums, target);
 
         // Assert
         result.Should().BeEquivalentTo(expected);
@@ -138,7 +138,7 @@ public class TwoSumTests
         int[] expected = [0, 1];
 
         // Act
-        var result = sut.Solution2(nums, target);
+        var result = sut.Solution(nums, target);
 
         // Assert
         result.Should().BeEquivalentTo(expected);
@@ -153,9 +153,23 @@ public class TwoSumTests
         int[] expected = [1, 2];
 
         // Act
-        var result = sut.Solution2(nums, target);
+        var result = sut.Solution(nums, target);
 
         // Assert
         result.Should().BeEquivalentTo(expected);
+    }
+
+    [Fact]
+    public void Test11()
+    {
+        // Arrange
+        int[] nums = [-3, 4, 3, 90];
+        int target = 2;
+
+        // Act
+        var result = sut.Solution(nums, target);
+
+        // Assert
+        result.Should().BeNullOrEmpty();
     }
 }

@@ -2,9 +2,9 @@
 
 public class ThreeSum
 {
-    public IList<IList<int>> Solution1(int[] nums)
+    public IList<IList<int>> Solution(int[] nums)
     {
-        Dictionary<int, int> dic = new();
+        Dictionary<int, int> dic = [];
         for (int i = 0; i < nums.Length; i++)
         {
             dic[nums[i]] = i;
@@ -39,4 +39,5 @@ public class ThreeSum
         int[] ordered = [.. subset.Order()];
         return (ordered[0], ordered[1], ordered[2]);
     }
+
 }

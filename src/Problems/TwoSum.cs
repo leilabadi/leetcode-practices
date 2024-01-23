@@ -2,7 +2,8 @@
 
 public class TwoSum
 {
-    public int[] Solution1(int[] nums, int target)
+    // This solution is O(N)
+    public int[] Solution(int[] nums, int target)
     {
         Dictionary<int, List<int>> dic = [];
         for (int i = 0; i < nums.Length; i++)
@@ -35,28 +36,5 @@ public class TwoSum
             }
         }
         return Array.Empty<int>();
-    }
-
-    public int[] Solution2(int[] nums, int target)
-    {
-        var numMap = new Dictionary<int, int>();
-        var result = new int[2];
-
-        for (var i = 0; i < nums.Length; i++)
-        {
-            var rightNum = target - nums[i];
-            if (!numMap.ContainsKey(rightNum))
-            {
-                numMap[nums[i]] = i;
-            }
-            else
-            {
-                result[0] = numMap[rightNum];
-                result[1] = i;
-                return result;
-            }
-        }
-
-        return result;
     }
 }
