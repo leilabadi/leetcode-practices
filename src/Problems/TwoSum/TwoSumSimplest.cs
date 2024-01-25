@@ -1,6 +1,6 @@
-﻿namespace LeetcodePractices.Problems;
+﻿namespace LeetcodePractices.Problems.TwoSum;
 
-public class TwoSum
+public class TwoSumSimplest
 {
     // This solution is O(N)
     public int[] Solution(int[] nums, int target)

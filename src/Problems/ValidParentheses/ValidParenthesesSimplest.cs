@@ -1,6 +1,6 @@
-﻿namespace LeetcodePractices.Problems
+﻿namespace LeetcodePractices.Problems.ValidParentheses
 {
-    public class ValidParentheses
+    public class ValidParenthesesSimplest
     {
         public bool IsValid(string s)
         {

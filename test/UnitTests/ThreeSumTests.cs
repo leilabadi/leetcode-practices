@@ -1,3 +1,5 @@
+using LeetcodePractices.Problems.ThreeSum;
+
 namespace LeetcodePractices.UnitTests;
 
 public class ThreeSumTests

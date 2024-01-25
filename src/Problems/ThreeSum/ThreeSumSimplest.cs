@@ -1,6 +1,6 @@
-﻿namespace LeetcodePractices.Problems;
+﻿namespace LeetcodePractices.Problems.ThreeSum;
 
-public class ThreeSum
+public class ThreeSumSimplest
 {
     public IList<IList<int>> Solution(int[] nums)
     {

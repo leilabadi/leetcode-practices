@@ -1,12 +1,14 @@
-﻿namespace LeetcodePractices.UnitTests;
+﻿using LeetcodePractices.Problems.ValidParentheses;
+
+namespace LeetcodePractices.UnitTests;
 
 public class ValidParenthesesTests
 {
-    private readonly ValidParentheses sut;
+    private readonly ValidParenthesesSimplest sut;
 
     public ValidParenthesesTests()
     {
-        sut = new ValidParentheses();
+        sut = new ValidParenthesesSimplest();
     }
 
     [Fact]

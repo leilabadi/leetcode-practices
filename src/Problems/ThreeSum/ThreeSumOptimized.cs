@@ -1,4 +1,4 @@
-﻿namespace LeetcodePractices.Problems;
+﻿namespace LeetcodePractices.Problems.ThreeSum;
 
 public class ThreeSumOptimized
 {
